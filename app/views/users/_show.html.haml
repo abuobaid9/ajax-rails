@@ -1,0 +1,16 @@
+.modal-body
+  .col-lg-12
+    %p
+      %strong Name:
+      = user.name
+    %p
+      %strong Email:
+      = user.email
+    %p
+      %strong Address:
+      = user.address
+    %p
+      %strong Contact:
+      = user.contact
+.modal-footer
+  %button.btn.btn-secondary.btn-lg.close-modal{"data-bs-dismiss" => "modal", :type => "button"} Close

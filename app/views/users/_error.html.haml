@@ -1,0 +1,9 @@
+- if user.errors.any?
+  #error_explanation
+    %h6.text-danger
+      = pluralize(user.errors.count, "error")
+      prohibited this user from being saved:
+    - user.errors.each do |error|
+      .alert.alert-danger.alert-dismissible.fade.show{:role => "alert"}
+        %strong= error.full_message
+        %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "alert", :type => "button"}

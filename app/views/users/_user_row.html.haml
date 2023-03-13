@@ -1,0 +1,13 @@
+%tr{:id => "userRow_#{user.id}"}
+  %td= user.name
+  %td= user.email
+  %td= user.address
+  %td= user.contact
+  %td
+    .dropdown
+      %button#dropdownMenuButton1.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button"}
+        Actions
+      %ul.dropdown-menu{"aria-labelledby" => "dropdownMenuButton1"}
+        %li= link_to 'Show', user, class: "dropdown-item", data: { bs_toggle: "modal", bs_target: "#showUserModal", remote: true }
+        %li= link_to 'Edit', edit_user_path(user), class: "dropdown-item", data: { bs_toggle: 'modal', bs_target: '#editUserModal', remote: true }
+        %li= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?', remote: true}, class: "dropdown-item"

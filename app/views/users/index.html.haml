@@ -1,0 +1,38 @@
+%p#notice= notice
+.container
+  .row
+    .col-lg-12.mx-md-auto
+      %h1 Users
+      = link_to 'New User', new_user_path, class: "btn btn-primary btn-lg mb-4", data: { bs_toggle: 'modal', bs_target: '#newUserModal', remote: true }
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th Address
+            %th Contact
+            %th
+        %tbody#usersTable
+          - @users.each do |user|
+            = render 'user_row', user: user
+#newUserModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "newUserModalLabel", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5#newUserModalLabel.modal-title Create New User
+        %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+      #newUserForm
+#editUserModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "editUserModalLabel", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5#editUserModalLabel.modal-title Edit User
+        %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+      #editUserForm
+#showUserModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "showUserModalLabel", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5#showUserModalLabel.modal-title User Details
+        %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+      #showUserDetails
